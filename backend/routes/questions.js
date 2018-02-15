@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
-const db_uri = process.env.DB_URI;
-
-const db_name = "qb";
-const question_collection = "questions";
+var db = require('../database');
 
 /* GET all questions */
-router.get('/', function(req, res, next) { 
-  res.json({'hello':"world"});
+router.get('/random', function(req, res, next) {
+  db.accessor.getRandomQuestion().then(function(question) {
+    res.json(question);
+  }).catch(function(err) {
+    console.error(err);
+    res.status(500);
+    next(err);
+  })
 });
 
 module.exports = router;

@@ -3,7 +3,7 @@
  */
 var mongoose = require('mongoose');
 var util = require('../util');
-var models = require('./models');
+var accessor = require('./accessor');
 
 function init() {
   if (util.is_prod()) {
@@ -19,5 +19,5 @@ function init() {
 
 module.exports = {
   init: init,
-  models: models
+  accessor: accessor
 };

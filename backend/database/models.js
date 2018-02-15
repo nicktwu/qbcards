@@ -8,7 +8,8 @@ var QuestionSchema = new Schema({
   question: String,
   answers: [String],
   forbidden: [String],
-  crucial: [String]
+  crucial: [String],
+  difficulty: Number
 });
 
 var Question = mongoose.model('Question', QuestionSchema);
